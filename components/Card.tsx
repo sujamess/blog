@@ -27,7 +27,6 @@ const Card = ({ id, title, category, readingTime, date, description }: ICardProp
               <h1 className="title-font text-lg font-medium text-gray-900">{title}</h1>
             </a>
           </Link>
-          {/* <span className="text-gray-600 flex flex-col sm:flex-row md:flex-row lg:flex-row xl:flex-row lg:ml-auto md:ml-0 ml-auto leading-none text-sm border-gray-300 mb-3"> */}
           <span className="text-gray-600 lg:ml-auto md:ml-0 ml-auto leading-none text-sm border-gray-300 mb-3">
             {formatDate(date)}
           </span>
