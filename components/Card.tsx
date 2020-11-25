@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FULL_NAME, POSITION } from 'shared/constant';
 import { formatDate, formatReadingTime } from 'utils/formatter';
 
 interface ICardProps {
@@ -28,13 +27,9 @@ const Card = ({ id, title, category, readingTime, date, description }: ICardProp
               <h1 className="title-font text-lg font-medium text-gray-900">{title}</h1>
             </a>
           </Link>
-          <span className="text-gray-600 flex flex-col sm:flex-row lg:ml-auto md:ml-0 ml-auto leading-none text-sm border-gray-300 mb-3">
+          {/* <span className="text-gray-600 flex flex-col sm:flex-row md:flex-row lg:flex-row xl:flex-row lg:ml-auto md:ml-0 ml-auto leading-none text-sm border-gray-300 mb-3"> */}
+          <span className="text-gray-600 lg:ml-auto md:ml-0 ml-auto leading-none text-sm border-gray-300 mb-3">
             {formatDate(date)}
-            <div className="flex flex-row">
-              <p className="mx-2 hidden sm:flex">•</p>
-              ☕️
-              <p className="ml-2">{formatReadingTime(readingTime)}</p>
-            </div>
           </span>
           <p className="leading-relaxed mb-3">{description}</p>
         </div>
