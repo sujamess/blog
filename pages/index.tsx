@@ -7,7 +7,7 @@ interface IBlogsProps {
   blogsData: IBlogData[];
 }
 
-const BLOG_INDEX_PAGE_TITLE = 'Sujames Blog';
+export const BLOG_INDEX_PAGE_TITLE = 'Sujames Blog';
 const BLOG_INDEX_PAGE_META = 'Sujames Blog that build from Next.js';
 
 const Blogs = ({ blogsData }: IBlogsProps) => {
@@ -17,28 +17,25 @@ const Blogs = ({ blogsData }: IBlogsProps) => {
         <title>{BLOG_INDEX_PAGE_TITLE}</title>
         <meta name="description" content={BLOG_INDEX_PAGE_META} />
       </Head>
-      <div className="flex flex-col items-center h-screen">
-        <div className="w-11/12 md:w-8/12 flex flex-wrap -mx-4">
-          {blogsData.map((blogData, index) => (
-            <Card
-              key={index}
-              id={blogData.id}
-              title={blogData.title}
-              estimatedTime={blogData.estimatedTime}
-              description={blogData.description}
-              date={blogData.date}
-            />
-          ))}
-          <div className="w-full flex justify-between pb-8 sm:pb-8 mt-4 sm:mt-8 px-4">
-            <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-mono hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-              Newer
-            </button>
-              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-mono hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                Older
-            </button>
+      <section className="w-full flex justify-center">
+        <div className="sm:w-3/4 text-gray-700 body-font">
+          <div className="container px-4 pt-4 pb-8 mx-auto">
+            <div className="flex flex-wrap -m-4">
+              {blogsData.map((blogData, index) => (
+                <Card
+                  key={index}
+                  id={blogData.id}
+                  title={blogData.metaData.title}
+                  category={blogData.metaData.category}
+                  readingTime={blogData.metaData.readingTime}
+                  description={blogData.metaData.description}
+                  date={blogData.metaData.date}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
