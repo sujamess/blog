@@ -7,7 +7,7 @@
     "build": "yarn build:css && next build",
     "start": "next start",
     "build:css": "postcss styles/tailwind.css -o styles/globals.css",
-    "watch:css": "postcss styles/tailwind.css -o styles/globals.css --watch",
+    "watch:css": "postcss styles/tailwind.css -o styles/globals.css --watch"
   },
   "dependencies": {
     "autoprefixer": "10.0.2",
