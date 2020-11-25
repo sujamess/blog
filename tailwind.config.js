@@ -7,7 +7,8 @@ module.exports = {
   },
   purge: [
     './pages/**/*.tsx',
-    './components/**/*.tsx'
+    './components/**/*.tsx',
+    './components/*.tsx',
   ],
   presets: [],
   darkMode: 'class', // or 'media' or 'class'
