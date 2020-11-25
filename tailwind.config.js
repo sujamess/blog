@@ -156,7 +156,6 @@ module.exports = {
     fill: { current: 'currentColor' },
     flex: {
       1: '1 1 0%',
-      '2-cols': '0 0 50%',
       auto: '1 1 auto',
       initial: '0 1 auto',
       none: 'none',
@@ -200,7 +199,6 @@ module.exports = {
       ],
     },
     fontSize: {
-      '2xs': ['0.5rem', { lineHeight: '0.75rem' }],
       xs: ['0.75rem', { lineHeight: '1rem' }],
       sm: ['0.875rem', { lineHeight: '1.25rem' }],
       base: ['1rem', { lineHeight: '1.5rem' }],
@@ -457,8 +455,6 @@ module.exports = {
     }),
     maxHeight: (theme) => ({
       ...theme('spacing'),
-      '1/2': '50%',
-      '2/3': '66.666667%',
       full: '100%',
       screen: '100vh',
     }),
@@ -484,8 +480,6 @@ module.exports = {
     }),
     minHeight: {
       0: '0px',
-      '1/2': '50%',
-      '2/3': '66.666667%',
       full: '100%',
       screen: '100vh',
     },
