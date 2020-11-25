@@ -1,15 +1,17 @@
 ---
 title: 'My first blog!'
+category: 'About me'
 description: 'Welcome to my first blog which made with Next.js and Tailwind CSS'
 date: '2020-11-20'
+readingTime: 1
 ---
 
 # Welcome to my first blog that made with [Next.js](https://nextjs.org) and [Tailwind CSS](https://tailwindcss.com)
 
 ## Let me introduce my self 😎
 
-``` javascript
-const personalInformation = {
+``` json
+{
   "fullName": "Surarerk Boonjit",
   "nickname": "James",
 }
