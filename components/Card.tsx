@@ -1,32 +1,42 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import { FULL_NAME, POSITION } from 'shared/constant';
 import { formatDate, formatReadingTime } from 'utils/formatter';
 
 interface ICardProps {
   id: string;
-  title?: string;
-  estimatedTime?: number;
-  description?: string;
-  date?: string;
+  title: string;
+  category: string;
+  readingTime: number;
+  description: string;
+  date: string;
 }
 
-const Card = ({ id, title, estimatedTime, date, description }: ICardProps) => {
+const Card = ({ id, title, category, readingTime, date, description }: ICardProps) => {
   return (
-    <div className="my-4 px-4 w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2">
-      <div className="h-full w-full shadow-lg px-4 py-4">
+    <div className="p-4 xl:w-1/3">
+      <div className="h-full flex flex-col shadow-lg border-2 border-gray-200 rounded-lg overflow-hidden">
         <Link href={`/${id}`}>
           <a>
-            <p className="text-blue-500 hover:text-blue-700 text-base sm:text-3xl font-medium truncate overflow-hidden">
-              {title}
-            </p>
+            <Image width="720" height="400" src="/cover_image.jpg" />
           </a>
         </Link>
-        <p className="text-xs font-extralight">{formatDate(date)} • {formatReadingTime(estimatedTime)}</p>
-        <div
-          className="h-1/2 sm:h-2/3 min-h-1/2 sm:min-h-2/3 py-4"
-        >
-          <p className="text-sm sm:text-lg overflow-y-hidden break-words font-extralight">
-            {description}
-          </p>
+        <div className="p-6">
+          <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">{category}</h2>
+          <Link href={`/${id}`}>
+            <a>
+              <h1 className="title-font text-lg font-medium text-gray-900">{title}</h1>
+            </a>
+          </Link>
+          <span className="text-gray-600 flex flex-col sm:flex-row lg:ml-auto md:ml-0 ml-auto leading-none text-sm border-gray-300 mb-3">
+            {formatDate(date)}
+            <div className="flex flex-row">
+              <p className="mx-2 hidden sm:flex">•</p>
+              ☕️
+              <p className="ml-2">{formatReadingTime(readingTime)}</p>
+            </div>
+          </span>
+          <p className="leading-relaxed mb-3">{description}</p>
         </div>
       </div>
     </div>
