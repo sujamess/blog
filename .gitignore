@@ -32,6 +32,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# auto generated files
 /styles/globals.css
+
+# worker
 /public/sw.*
 /public/workbox-*.*
