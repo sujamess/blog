@@ -12,7 +12,7 @@
   "dependencies": {
     "@types/react-syntax-highlighter": "^13.5.0",
     "autoprefixer": "10.2.1",
-    "dayjs": "^1.9.6",
+    "dayjs": "^1.10.3",
     "gray-matter": "^4.0.2",
     "next": "^10.0.3",
     "next-compose-plugins": "^2.2.1",
