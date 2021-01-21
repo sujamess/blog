@@ -19,20 +19,17 @@ const Blogs = ({ blogsData }: IBlogsProps) => {
       </Head>
       <section className="w-full flex justify-center">
         <div className="sm:w-3/4 text-gray-700 body-font">
-          <div className="container px-4 pt-4 pb-8 mx-auto">
-            <div className="flex flex-wrap -m-4">
-              {blogsData.map((blogData, index) => (
-                <Card
-                  key={index}
-                  id={blogData.id}
-                  title={blogData.metaData.title}
-                  category={blogData.metaData.category}
-                  readingTime={blogData.metaData.readingTime}
-                  description={blogData.metaData.description}
-                  date={blogData.metaData.date}
-                />
-              ))}
-            </div>
+          <div className="flex flex-wrap -m-4">
+            {blogsData.map((blogData, index) => (
+              <Card
+                key={index}
+                id={blogData.id}
+                title={blogData.metaData.title}
+                category={blogData.metaData.category}
+                description={blogData.metaData.description}
+                date={blogData.metaData.date}
+              />
+            ))}
           </div>
         </div>
       </section>
