@@ -16,7 +16,7 @@ const Card = ({ id, title, category, date, description }: ICardProps) => {
       <div className="h-full flex flex-col shadow-lg border-2 border-gray-200 rounded-lg overflow-hidden">
         <Link href={`/${id}`}>
           <a>
-            <Image width="720" height="400" src="/cover_image.jpg" />
+            <Image alt={`${id}-cover-image`} width="720" height="400" src="/cover_image.jpg" />
           </a>
         </Link>
         <div className="p-6">
