@@ -7,9 +7,9 @@ interface IMarkdownProps {
 }
 
 const syntaxHighlighterRenderer = {
-  code: ({ language, value }) => {
-    return <SyntaxHighlighter language={language} children={value} />
-  },
+  code: ({ language, value }) => (
+    <SyntaxHighlighter language={language}>{value}</SyntaxHighlighter>
+  ),
 };
 
 const Markdown = ({ content }: IMarkdownProps) => {
