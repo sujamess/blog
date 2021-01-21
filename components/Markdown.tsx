@@ -14,7 +14,7 @@ const syntaxHighlighterRenderer = {
 
 const Markdown = ({ content }: IMarkdownProps) => {
   return (
-    <ReactMarkdown plugins={[gfm]} renderers={syntaxHighlighterRenderer}>
+    <ReactMarkdown plugins={[gfm]} renderers={syntaxHighlighterRenderer} className="prose max-w-full">
       {content}
     </ReactMarkdown>
   );
