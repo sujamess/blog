@@ -1610,10 +1610,10 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-autoprefixer@10.2.2:
-  version "10.2.2"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.2.2.tgz#a452e4d2aabe54b9f22b2229a99bb1e594f6d90f"
-  integrity sha512-jOQss7vuYBoPW5dYt4lvhDImjGE1Fvl9NjUCzKI21TB74Gl7CxIRsWgJpOplV7dbtKNVnY97JuwULpIGa6KZ1Q==
+autoprefixer@10.2.3:
+  version "10.2.3"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.2.3.tgz#2834b55b75cfc10fa80c66000a66dc94b7136804"
+  integrity sha512-vlz+iv+EnLkVaTgX8wApfYzmK3LUfK8Z9XAnmflzxMy/+oFuNK8fVGQV79SOpBv4jxk2YQJimw4hXIKZ29570A==
   dependencies:
     browserslist "^4.16.1"
     caniuse-lite "^1.0.30001178"
