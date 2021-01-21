@@ -10,10 +10,27 @@ readingTime: 1
 
 ## Let me introduce my self 😎
 
-``` json
-{
-  "fullName": "Surarerk Boonjit",
-  "nickname": "James",
+``` go
+sujamess := aboutMe{
+  pronouns:  []string{"He", "Him"},
+  languages: []string{"Go", "Typescript", "Javascript", "Rust"},
+  technology: technology{
+    frontEnd: []string{"React.js", "Next.js", "CSS", "SCSS"},
+    backEnd: []backEndStack{
+      {
+        language:  []string{"Go"},
+        framworks: []string{"stdlib", "echo"},
+      },
+      {
+        language:   []string{"Typescript", "Javascript"},
+        frameworks: []string{"Nest.js", "Express", "Koa"},
+      },
+      {
+        language:   []string{"Rust"},
+        frameworks: []string{"Actix"},
+      },
+    },
+  },
 }
 ```
 
