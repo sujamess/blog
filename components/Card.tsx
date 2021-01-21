@@ -1,17 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { formatDate, formatReadingTime } from 'utils/formatter';
+import { formatDate } from 'utils/formatter';
 
 interface ICardProps {
   id: string;
   title: string;
   category: string;
-  readingTime: number;
   description: string;
   date: string;
 }
 
-const Card = ({ id, title, category, readingTime, date, description }: ICardProps) => {
+const Card = ({ id, title, category, date, description }: ICardProps) => {
   return (
     <div className="p-4 xl:w-1/3">
       <div className="h-full flex flex-col shadow-lg border-2 border-gray-200 rounded-lg overflow-hidden">
