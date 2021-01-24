@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Divider from './Divider';
 
 interface ICardProps {
+  index: number;
   slug: string;
   title: string;
   tags: string[];
@@ -13,13 +14,25 @@ interface ICardProps {
   date: string;
 }
 
-const Card = ({ slug, title, tags, date, description, coverImgUrl, coverImgWidth, coverImgHeight }: ICardProps) => {
+const Card = ({
+  index,
+  slug,
+  title,
+  tags,
+  date,
+  description,
+  coverImgUrl,
+  coverImgWidth,
+  coverImgHeight,
+}: ICardProps) => {
   return (
     <Link href={`/${slug}`}>
       <a>
         <div className="flex flex-col shadow-lg border-2 border-gray-200 rounded-lg overflow-hidden">
           <Image
             alt={title}
+            // Load first 4 images immediately
+            priority={index < 4}
             src={coverImgUrl}
             width={coverImgWidth}
             height={coverImgHeight}
