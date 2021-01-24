@@ -38,7 +38,7 @@ const Card = ({
           />
 
           <div className="p-6">
-            <h2 className="text-cyan-500 tracking-widest text-xs title-font font-medium mb-1">{tags[0]}</h2>
+            <h2 className="text-blue-600 tracking-widest text-xs title-font font-medium mb-1">{tags[0]}</h2>
             <Link href={`/${slug}`}>
               <a>
                 <h1 className="title-font text-2xl font-medium text-gray-900">{title}</h1>

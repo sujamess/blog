@@ -72,7 +72,7 @@ const Blog = ({ blog }: IBlogProps) => {
         </section>
         <div className="w-full sm:w-1/2 px-4 py-4">
           <article
-            className="prose prose-cyan max-w-full"
+            className="prose prose-blue max-w-full"
             dangerouslySetInnerHTML={{
               __html: blog.content,
             }}
