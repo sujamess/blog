@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Divider from './Divider';
+import Tags from './Tags';
 
 interface ICardProps {
   index: number;
@@ -22,23 +23,22 @@ const Card = ({
   date,
   description,
   coverImgUrl,
-  coverImgWidth,
-  coverImgHeight,
 }: ICardProps) => {
   return (
     <Link href={`/${slug}`}>
       <a>
-        <div className="flex flex-col shadow-lg border-2 border-gray-200 rounded-lg overflow-hidden">
+        <div className="rounded-none sm:rounded-lg overflow-hidden shadow-lg">
           <Image
+            objectFit="contain"
             alt={title}
             src={coverImgUrl}
-            width={coverImgWidth}
-            height={coverImgHeight}
+            width={592}
+            height={320}
             layout="responsive"
           />
 
           <div className="p-6">
-            <h2 className="text-blue-600 tracking-widest text-xs title-font font-medium mb-1">{tags[0]}</h2>
+            <Tags tags={tags} />
             <Link href={`/${slug}`}>
               <a>
                 <h1 className="title-font text-2xl font-medium text-gray-900">{title}</h1>
