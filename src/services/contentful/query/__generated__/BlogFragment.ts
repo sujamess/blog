@@ -8,8 +8,6 @@
 // ====================================================
 
 export interface BlogFragment_coverImg {
-  width: number | null;
-  height: number | null;
   url: string | null;
 }
 

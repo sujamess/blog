@@ -8,8 +8,6 @@
 // ====================================================
 
 export interface BlogCollection_sujamesBlogCollection_items_coverImg {
-  width: number | null;
-  height: number | null;
   url: string | null;
 }
 
