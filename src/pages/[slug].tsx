@@ -62,7 +62,13 @@ const Blog = ({ blog }: IBlogProps) => {
           <Divider />
         </div>
         <section className="flex justify-center py-4">
-          <Adsense />
+          <Adsense
+            style={{
+              width: 300,
+              height: 240,
+              minHeight: '240px',
+            }}
+          />
         </section>
         <div className="w-full sm:w-1/2 px-4 py-4">
           <article
@@ -73,7 +79,12 @@ const Blog = ({ blog }: IBlogProps) => {
           />
         </div>
         <section className="flex justify-center py-4">
-          <Adsense />
+          <Adsense
+            style={{
+              width: 472,
+              height: 200,
+            }}
+          />
         </section>
       </div>
     </>
