@@ -40,8 +40,6 @@ const SEO: React.FC<ISEOProps> = ({ title, description, image, children }) => {
         <meta property="og:image" content={image} />
         <meta property="twitter:image" content={image} />
 
-        <meta name="robots" content="noindex" />
-
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           rel="stylesheet"
