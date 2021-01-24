@@ -34,8 +34,11 @@ yarn-error.log*
 .vercel
 
 # auto generated files
-/styles/globals.css
+/src/styles/globals.css
 
 # worker
 /public/sw.*
 /public/workbox-*.*
+
+# env
+.env
