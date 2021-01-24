@@ -7,6 +7,8 @@ import DefaultErrorPage from 'next/error';
 import { BlogBySlug_sujamesBlogCollection_items } from 'src/services/contentful/query/__generated__/BlogBySlug';
 import { defaultDateFormat } from 'src/shared/constants/app.constant';
 import { useRouter } from 'next/router';
+import Tags from 'src/components/Tags';
+import Image from 'next/image';
 
 interface IBlogProps {
   blog: BlogBySlug_sujamesBlogCollection_items;
@@ -28,7 +30,7 @@ const Blog = ({ blog }: IBlogProps) => {
           />
           <div className="pt-4 pb-8 px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl pt-2">กำลังโหลด</h1>
-            <div className="pt-6 prose prose-blue max-w-3xl mx-auto">
+            <div className="pt-6 prose prose-green max-w-3xl mx-auto">
               กำลังดึงข้อมูล...กรุณารอสักครู่
             </div>
           </div>
@@ -54,8 +56,17 @@ const Blog = ({ blog }: IBlogProps) => {
         title={blog.title}
         description={blog.description}
       />
-      <div className="flex flex-col items-center">
-        <div className="w-full sm:w-1/2 px-4">
+      <div className="mx-auto w-full lg:w-1/2 shadow-2xl rounded-2xl px-4 pb-4 lg:px-12 lg:pb-12 xl:px-16 xl:pb-16">
+        <div className="px-4">
+          <Image
+            alt={`${blog.title}-slug-cover-img`}
+            objectFit="contain"
+            src={blog.coverImg.url}
+            width={868}
+            height={468}
+            layout="responsive"
+          />
+          <Tags tags={blog.tags} />
           <p className="text-4xl font-medium break-words">{blog.title}</p>
           <p className="text-sm font-extralight">{blog.createdAt}</p>
           <Divider />
@@ -70,9 +81,9 @@ const Blog = ({ blog }: IBlogProps) => {
             }}
           />
         </section> */}
-        <div className="w-full sm:w-1/2 px-4 py-4">
+        <div className="px-4 py-4">
           <article
-            className="prose prose-blue max-w-full"
+            className="prose prose-lg max-w-full"
             dangerouslySetInnerHTML={{
               __html: blog.content,
             }}
