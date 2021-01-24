@@ -10,8 +10,6 @@ interface ICardProps {
   tags: string[];
   description: string;
   coverImgUrl: string;
-  coverImgWidth: number;
-  coverImgHeight: number;
   date: string;
 }
 
@@ -27,7 +25,7 @@ const Card = ({
   return (
     <Link href={`/${slug}`}>
       <a>
-        <div className="rounded-none sm:rounded-lg overflow-hidden shadow-lg">
+        <div className="rounded-2xl overflow-hidden shadow-xl px-4 pb-4">
           <Image
             objectFit="contain"
             alt={title}

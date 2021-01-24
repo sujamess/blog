@@ -24,8 +24,6 @@ const Blogs = ({ blogs }: IBlogsProps) => {
               title={blog.title}
               tags={blog.tags}
               coverImgUrl={blog.coverImg.url}
-              coverImgWidth={blog.coverImg.width}
-              coverImgHeight={blog.coverImg.height}
               description={blog.description}
               date={blog.createdAt}
             />
