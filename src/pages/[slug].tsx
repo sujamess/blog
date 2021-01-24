@@ -7,7 +7,6 @@ import DefaultErrorPage from 'next/error';
 import { BlogBySlug_sujamesBlogCollection_items } from 'src/services/contentful/query/__generated__/BlogBySlug';
 import { defaultDateFormat } from 'src/shared/constants/app.constant';
 import { useRouter } from 'next/router';
-import Adsense from 'src/components/Adsense';
 
 interface IBlogProps {
   blog: BlogBySlug_sujamesBlogCollection_items;
@@ -61,7 +60,8 @@ const Blog = ({ blog }: IBlogProps) => {
           <p className="text-sm font-extralight">{blog.createdAt}</p>
           <Divider />
         </div>
-        <section className="flex justify-center py-4">
+        {/* Remove adsense, waiting for building sujames.com */}
+        {/* <section className="flex justify-center py-4">
           <Adsense
             style={{
               width: 300,
@@ -69,7 +69,7 @@ const Blog = ({ blog }: IBlogProps) => {
               minHeight: '240px',
             }}
           />
-        </section>
+        </section> */}
         <div className="w-full sm:w-1/2 px-4 py-4">
           <article
             className="prose prose-blue max-w-full"
@@ -78,14 +78,15 @@ const Blog = ({ blog }: IBlogProps) => {
             }}
           />
         </div>
-        <section className="flex justify-center py-4">
+        {/* Remove adsense, waiting for building sujames.com */}
+        {/* <section className="flex justify-center py-4">
           <Adsense
             style={{
               width: 472,
               height: 200,
             }}
           />
-        </section>
+        </section> */}
       </div>
     </>
   );
