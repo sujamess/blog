@@ -5,8 +5,6 @@ export const blogFragment = gql`
     slug
     title
     coverImg {
-      width
-      height
       url
     }
     createdAt
