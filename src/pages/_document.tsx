@@ -14,7 +14,7 @@ class Document extends NextDocument {
           {/* Google Ads */}
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${appConfig.google.analytics.measurement_id}"`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${appConfig.google.analytics.measurementId}"`}
           />
           <script
             dangerouslySetInnerHTML={{
@@ -23,7 +23,7 @@ class Document extends NextDocument {
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
               
-                gtag('config', '${appConfig.google.analytics.measurement_id}');
+                gtag('config', '${appConfig.google.analytics.measurementId}');
               `,
             }}
           />

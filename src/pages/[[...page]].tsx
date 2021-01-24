@@ -19,6 +19,7 @@ const Blogs = ({ blogs }: IBlogsProps) => {
           {blogs.map((blog, index) => (
             <Card
               key={index}
+              index={index}
               slug={blog.slug}
               title={blog.title}
               tags={blog.tags}
