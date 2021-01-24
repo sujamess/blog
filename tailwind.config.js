@@ -37,15 +37,22 @@ module.exports = {
       rose: colors.rose,
     },
     extend: {
-      typography: {
+      typography: (theme) => ({
         DEFAULT: {
           css: {
-            h2: {
-              marginTop: '0',
+            color: theme('colors.gray.700'),
+            h3: {
+              color: theme('colors.gray.700')
+            },
+            h4: {
+              color: theme('colors.gray.700')
+            },
+            a: {
+              color: '#0e6634',
             },
           },
         },
-      },
+      }),
       fontFamily: {
         header: ['Kanit', ...defaultTheme.fontFamily.sans],
       },
