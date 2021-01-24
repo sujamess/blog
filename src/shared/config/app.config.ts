@@ -6,7 +6,10 @@ const appConfig = {
   },
   google: {
     analytics: {
-      measurement_id: process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
+      measurementId: process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
+    },
+    adsense: {
+      client: process.env.GOOGLE_ADSENSE_CLIENT,
     },
   },
 };
