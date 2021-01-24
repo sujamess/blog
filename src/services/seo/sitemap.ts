@@ -1,11 +1,11 @@
 import { NextApiHandler } from 'next';
 import { SitemapStream, streamToPromise } from 'sitemap';
 import { INTERNAL_SERVER_ERROR_STATUS_CODE, INTERNAL_SERVER_ERROR_MESSAGE } from 'src/shared/constants/error.constant';
-import { getSortedPostsData } from '../../lib/blog';
+import { getBlogs } from '../contentful/blogs';
 
 const sitemapApi: NextApiHandler = async (req, res) => {
   try {
-    const blogs = await getSortedPostsData();
+    const blogs = await getBlogs();
 
     const sitemapStream = new SitemapStream({
       hostname: `https://${req.headers.host}`,
@@ -19,8 +19,8 @@ const sitemapApi: NextApiHandler = async (req, res) => {
 
     blogs.forEach((blog) => {
       sitemapStream.write({
-        url: blog.id,
-        lastmod: blog.metaData.date,
+        url: blog.slug,
+        lastmod: blog.createdAt,
         changefreq: 'daily',
         priority: 0.7,
       });
