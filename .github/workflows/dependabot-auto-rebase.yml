@@ -7,6 +7,13 @@ jobs:
   dependabot-auto-rebase:
     runs-on: ubuntu-latest
     steps:
+      - uses: UnlyEd/github-action-await-vercel@v1.1.0
+        id: await-vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        with:
+          deployment-url: blog.sujames.com
+          timeout: 60
       - uses: actions/checkout@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
