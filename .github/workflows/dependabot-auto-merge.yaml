@@ -1,0 +1,33 @@
+name: Dependabot Auto Merge
+
+on:
+  pull_request:
+
+jobs:
+  dependabot-auto-merge:
+    runs-on: ubuntu-latest
+    if: |
+      github.actor == 'dependabot[bot]' &&
+      github.event_name == 'pull_request' &&
+      startsWith(github.event.pull_request.title, 'Bump')
+    steps:
+      - uses: UnlyEd/github-action-await-vercel@v1.1.0
+        id: await-vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        with:
+          deployment-url: blog.sujames.com
+          timeout: 60
+      - uses: actions/checkout@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/github-script@v2
+        with:
+          github-token: ${{secrets.TOKEN}}
+          script: |
+            await github.issues.createComment({
+              owner: context.payload.repository.owner.login,
+              repo: context.payload.repository.name,
+              issue_number: context.payload.pull_request.number,
+              body: '@dependabot merge'
+            })
