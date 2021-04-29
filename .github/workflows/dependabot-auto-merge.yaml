@@ -23,7 +23,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/github-script@v2
         with:
-          github-token: ${{secrets.TOKEN}}
+          github-token: ${{ secrets.TOKEN }}
           script: |
             await github.issues.createComment({
               owner: context.payload.repository.owner.login,
