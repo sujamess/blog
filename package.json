@@ -12,7 +12,7 @@
     "@contentful/rich-text-html-renderer": "^14.1.2",
     "@contentful/rich-text-types": "^14.1.2",
     "@tailwindcss/typography": "^0.4.0",
-    "autoprefixer": "^10.2.5",
+    "autoprefixer": "^10.3.1",
     "dayjs": "^1.10.4",
     "graphql": "^15.5.0",
     "graphql-tag": "^2.12.3",
