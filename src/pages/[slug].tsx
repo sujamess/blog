@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Head } from 'next/document';
 import React from 'react';
 import Divider from 'src/components/Divider';
 import SEO from 'src/components/SEO';
@@ -22,7 +21,7 @@ const Blog = ({ blog }: IBlogProps) => {
       <div className="max-w-2xl mx-auto">
         <div className="bg-white shadow-xl rounded-lg overflow-hidden">
           <video
-            src="https://media.tenor.com/videos/2a80e4b7a52833a14ed31b0bfa59e601/mp4"
+            src="https://media.giphy.com/media/3jmfMCLZkU5SyNXDf6/giphy.mp4"
             className="w-full h-auto"
             autoPlay
             loop
@@ -42,9 +41,6 @@ const Blog = ({ blog }: IBlogProps) => {
   if (!blog) {
     return (
       <>
-        <Head>
-          <meta name="robots" content="noindex" />
-        </Head>
         <DefaultErrorPage statusCode={404} />
       </>
     );
@@ -71,16 +67,6 @@ const Blog = ({ blog }: IBlogProps) => {
           <p className="text-sm font-extralight">{blog.createdAt}</p>
           <Divider />
         </div>
-        {/* Remove adsense, waiting for building sujames.com */}
-        {/* <section className="flex justify-center py-4">
-          <Adsense
-            style={{
-              width: 300,
-              height: 240,
-              minHeight: '240px',
-            }}
-          />
-        </section> */}
         <div className="px-4 py-4">
           <article
             className="prose prose-lg max-w-full"
@@ -89,15 +75,6 @@ const Blog = ({ blog }: IBlogProps) => {
             }}
           />
         </div>
-        {/* Remove adsense, waiting for building sujames.com */}
-        {/* <section className="flex justify-center py-4">
-          <Adsense
-            style={{
-              width: 472,
-              height: 200,
-            }}
-          />
-        </section> */}
       </div>
     </>
   );
@@ -108,17 +85,23 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
   const { getBlogBySlug } = await import ('src/services/contentful/blogs');
   const { markdownToString } = await import ('src/lib/markdown');
 
-  const blog = await getBlogBySlug({ slug: params.slug as string, preview });
+  try {
+    const blog = await getBlogBySlug({ slug: params.slug as string, preview });
 
-  return {
-    props: {
-      blog: {
-        ...blog,
-        content: await markdownToString(blog.content),
-        createdAt: dayjs(blog.createdAt).format(defaultDateFormat),
+    return {
+      props: {
+        blog: {
+          ...blog,
+          content: await markdownToString(blog.content),
+          createdAt: dayjs(blog.createdAt).format(defaultDateFormat),
+        },
       },
-    },
-  };
+    };
+  } catch (_error) {
+    return {
+      notFound: true,
+    }
+  }
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {

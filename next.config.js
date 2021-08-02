@@ -1,11 +1,15 @@
 const withPlugins = require('next-compose-plugins');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+const withOffline = require('next-offline')
 const withPreact = require('next-plugin-preact')
 
 module.exports = withPlugins(
-  [[withPreact]],
+  [[withOffline], [withPreact], [withBundleAnalyzer]],
   {
     target: 'serverless',
-    async rewrites() {
+    rewrites: async () => {
       return [
         {
           source: '/sitemap.xml',
@@ -22,6 +26,7 @@ module.exports = withPlugins(
     },
     experimental: {
       optimizeFonts: true,
+      scrollRestoration: true,
     },
   }
 );

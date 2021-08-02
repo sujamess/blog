@@ -28,7 +28,7 @@ module.exports = {
       emerald: colors.emerald,
       teal: colors.teal,
       cyan: colors.cyan,
-      lightblue: colors.lightBlue,
+      sky: colors.sky,
       blue: colors.blue,
       indigo: colors.indigo,
       violet: colors.violet,
@@ -48,7 +48,7 @@ module.exports = {
               color: theme('colors.gray.700')
             },
             a: {
-              color: '#0e6634',
+              color: theme('colors.blue.500'),
             },
           },
         },
