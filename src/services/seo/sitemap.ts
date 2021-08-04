@@ -1,7 +1,7 @@
 import { NextApiHandler } from 'next';
 import { SitemapStream, streamToPromise } from 'sitemap';
 import { INTERNAL_SERVER_ERROR_STATUS_CODE, INTERNAL_SERVER_ERROR_MESSAGE } from 'src/shared/constants/error.constant';
-import { getBlogs } from '../contentful/blogs';
+import { getBlogs } from '../contentful/blog';
 
 const sitemapApi: NextApiHandler = async (req, res) => {
   try {

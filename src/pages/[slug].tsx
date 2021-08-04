@@ -3,15 +3,15 @@ import React from 'react';
 import Divider from 'src/components/Divider';
 import SEO from 'src/components/SEO';
 import DefaultErrorPage from 'next/error';
-import { BlogBySlug_sujamesBlogCollection_items } from 'src/services/contentful/query/__generated__/BlogBySlug';
 import { defaultDateFormat } from 'src/shared/constants/app.constant';
 import { useRouter } from 'next/router';
 import Tags from 'src/components/Tags';
 import Image from 'next/image';
 import Loading from 'src/components/Loading';
+import { Blog as BlogPost } from 'src/shared/@types/blog'
 
 interface IBlogProps {
-  blog: BlogBySlug_sujamesBlogCollection_items;
+  blog: BlogPost;
 }
 
 const Blog = ({ blog }: IBlogProps) => {
@@ -66,11 +66,11 @@ const Blog = ({ blog }: IBlogProps) => {
 
 export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
   const { default: dayjs } = await import('dayjs');
-  const { getBlogBySlug } = await import('src/services/contentful/blogs');
+  const { getBlogBySlug } = await import('src/services/contentful/blog');
   const { markdownToString } = await import('src/lib/markdown');
 
   try {
-    const blog = await getBlogBySlug({ slug: params.slug as string, preview });
+    const blog = await getBlogBySlug(params.slug as string, preview);
 
     return {
       props: {
@@ -89,7 +89,7 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { getBlogs } = await import('src/services/contentful/blogs');
+  const { getBlogs } = await import('src/services/contentful/blog');
 
   const blogs = await getBlogs();
 

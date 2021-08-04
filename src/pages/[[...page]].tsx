@@ -3,11 +3,11 @@ import { ParsedUrlQuery } from 'querystring';
 import Card from 'src/components/Card';
 import Pagination from 'src/components/Pagination';
 import SEO from 'src/components/SEO';
-import { BlogCollection_sujamesBlogCollection_items } from 'src/services/contentful/query/__generated__/BlogCollection';
+import { Blog } from 'src/shared/@types/blog';
 import { defaultDateFormat } from 'src/shared/constants/app.constant';
 
 interface IBlogsProps {
-  blogs: BlogCollection_sujamesBlogCollection_items[];
+  blogs: Blog[];
 }
 
 const Blogs = ({ blogs }: IBlogsProps) => {
@@ -39,11 +39,11 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
   const { default: dayjs } = await import ('dayjs');
   const { default: chunk } = await import ('lodash/chunk');
   const { default: get } = await import ('lodash/get');
-  const { getBlogs } = await import ('src/services/contentful/blogs');
+  const { getBlogs } = await import ('src/services/contentful/blog');
 
   const targetPage = Number(get(context, 'params.page[1]', '1'))
   const blogs = await getBlogs();
-  const blogChunks = chunk(blogs, 9);
+  const blogChunks = chunk(blogs, 8);
 
   return {
     props: {
@@ -57,7 +57,7 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { default: chunk } = await import ('lodash/chunk');
-  const { getBlogs } = await import ('src/services/contentful/blogs');
+  const { getBlogs } = await import ('src/services/contentful/blog');
 
   const blogs = await getBlogs();
   const blogChunks = chunk(blogs, 9);

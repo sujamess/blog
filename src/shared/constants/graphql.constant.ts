@@ -1,6 +1,4 @@
-import gql from 'graphql-tag';
-
-export const blogFragment = gql`
+export const blogFragment = `
   fragment BlogFragment on SujamesBlog {
     slug
     title
