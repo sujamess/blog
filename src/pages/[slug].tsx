@@ -39,7 +39,7 @@ const Blog = ({ blog }: BlogProps) => {
           height={320}
           layout="responsive"
         />
-        <div className="p-6">
+        <div className="p-1 md:p-6">
           <Tags tags={blog.tags} />
           <p className="text-3xl font-medium break-words">{blog.title}</p>
           <p className="text-gray-600">{blog.createdAt}</p>

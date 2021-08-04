@@ -34,7 +34,7 @@ const Card = ({
             layout="responsive"
           />
 
-          <div className="p-6">
+          <div className="p-1 md:p-6">
             <Tags tags={tags} />
             <Link href={`/${slug}`}>
               <a>
