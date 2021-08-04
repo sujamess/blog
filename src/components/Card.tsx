@@ -14,7 +14,6 @@ interface ICardProps {
 }
 
 const Card = ({
-  index,
   slug,
   title,
   tags,

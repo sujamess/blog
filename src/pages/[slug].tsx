@@ -42,7 +42,7 @@ const Blog = ({ blog }: BlogProps) => {
         <div className="p-6">
           <Tags tags={blog.tags} />
           <p className="text-3xl font-medium break-words">{blog.title}</p>
-          <p className="text-sm font-extralight">{blog.createdAt}</p>
+          <p className="text-gray-600">{blog.createdAt}</p>
           <Divider />
           <article
             className="prose prose-lg max-w-full"
