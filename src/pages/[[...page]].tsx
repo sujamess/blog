@@ -5,11 +5,11 @@ import Pagination from 'src/components/Pagination';
 import SEO from 'src/components/SEO';
 import { Blog } from 'src/shared/@types/blog';
 
-interface IBlogsProps {
+interface BlogsProps {
   blogs: Blog[];
 }
 
-const Blogs = ({ blogs }: IBlogsProps) => {
+const Blogs = ({ blogs }: BlogsProps) => {
   return (
     <>
       <SEO />

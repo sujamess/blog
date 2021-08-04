@@ -8,25 +8,19 @@ import Image from 'next/image';
 import Loading from 'src/components/Loading';
 import { Blog as BlogPost } from 'src/shared/@types/blog'
 
-interface IBlogProps {
+interface BlogProps {
   blog: BlogPost;
 }
 
-const Blog = ({ blog }: IBlogProps) => {
+const Blog = ({ blog }: BlogProps) => {
   const router = useRouter();
 
   if (router.isFallback) {
-    return (
-      <Loading />
-    );
+    return <Loading />
   }
 
   if (!blog) {
-    return (
-      <>
-        <DefaultErrorPage statusCode={404} />
-      </>
-    );
+    return <DefaultErrorPage statusCode={404} />;
   }
 
   return (
@@ -62,7 +56,7 @@ const Blog = ({ blog }: IBlogProps) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
+export const getStaticProps: GetStaticProps = async ({ params, preview = false }) => {
   const { default: dayjs } = await import('dayjs');
   const { getBlogBySlug } = await import('src/services/contentful/blog');
   const { markdownToString } = await import('src/lib/markdown');

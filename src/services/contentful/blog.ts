@@ -44,7 +44,7 @@ export const getBlogs = async (preview = false): Promise<Blog[]> => {
   }
 }
 
-export const getBlogBySlug = async (slug: string, preview = false) => {
+export const getBlogBySlug = async (slug: string, preview = false): Promise<Blog> => {
   const query = `
     query BlogBySlug($slug: String) {
       sujamesBlogCollection(where: { slug: $slug }) {
