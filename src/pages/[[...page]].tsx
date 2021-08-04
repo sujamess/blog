@@ -4,7 +4,6 @@ import Card from 'src/components/Card';
 import Pagination from 'src/components/Pagination';
 import SEO from 'src/components/SEO';
 import { Blog } from 'src/shared/@types/blog';
-import { defaultDateFormat } from 'src/shared/constants/app.constant';
 
 interface IBlogsProps {
   blogs: Blog[];
@@ -40,6 +39,7 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
   const { default: chunk } = await import ('lodash/chunk');
   const { default: get } = await import ('lodash/get');
   const { getBlogs } = await import ('src/services/contentful/blog');
+  const { defaultDateFormat } = await import ('src/shared/constants/app.constant');
 
   const targetPage = Number(get(context, 'params.page[1]', '1'))
   const blogs = await getBlogs();

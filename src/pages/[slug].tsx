@@ -1,9 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import React from 'react';
 import Divider from 'src/components/Divider';
 import SEO from 'src/components/SEO';
 import DefaultErrorPage from 'next/error';
-import { defaultDateFormat } from 'src/shared/constants/app.constant';
 import { useRouter } from 'next/router';
 import Tags from 'src/components/Tags';
 import Image from 'next/image';
@@ -68,6 +66,7 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
   const { default: dayjs } = await import('dayjs');
   const { getBlogBySlug } = await import('src/services/contentful/blog');
   const { markdownToString } = await import('src/lib/markdown');
+  const { defaultDateFormat } = await import ('src/shared/constants/app.constant');
 
   try {
     const blog = await getBlogBySlug(params.slug as string, preview);
