@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@contentful/rich-text-html-renderer": "^15.1.0",
+    "@contentful/rich-text-html-renderer": "^15.3.3",
     "@contentful/rich-text-types": "^15.1.0",
     "@next/bundle-analyzer": "^11.0.1",
     "@tailwindcss/typography": "^0.4.1",
