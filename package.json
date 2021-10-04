@@ -12,7 +12,7 @@
     "@contentful/rich-text-types": "^15.1.0",
     "@next/bundle-analyzer": "^11.0.1",
     "@tailwindcss/typography": "^0.4.1",
-    "autoprefixer": "^10.3.1",
+    "autoprefixer": "^10.3.7",
     "dayjs": "^1.10.6",
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
