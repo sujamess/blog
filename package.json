@@ -30,7 +30,7 @@
     "remark": "13.0.0",
     "remark-html": "^13.0.1",
     "sitemap": "^7.0.0",
-    "tailwindcss": "^2.2.7"
+    "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.171",
