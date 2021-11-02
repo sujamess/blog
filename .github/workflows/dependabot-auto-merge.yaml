@@ -18,8 +18,9 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         with:
-          deployment-url: bog.sujames.com
+          deployment-url: ${{ secrets.VERCEL_DEPLOYMENT_URL }}
           timeout: 10 # Wait for 10 seconds before failing
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
       - name: Display deployment status
         run: "echo The deployment at ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).url }} is ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).readyState }}"
