@@ -13,14 +13,13 @@ jobs:
       startsWith(github.event.pull_request.title, 'Bump')
     steps:
       # Waiting for Vercel deployment
-      - uses: UnlyEd/github-action-await-vercel@v1.1.0
+      - uses: UnlyEd/github-action-await-vercel@v1.2.14
         id: await-vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         with:
           deployment-url: ${{ secrets.VERCEL_DEPLOYMENT_URL }}
           timeout: 10 # Wait for 10 seconds before failing
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
       - name: Display deployment status
         run: "echo The deployment at ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).url }} is ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).readyState }}"
