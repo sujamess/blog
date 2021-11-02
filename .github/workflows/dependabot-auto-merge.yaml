@@ -13,18 +13,15 @@ jobs:
       startsWith(github.event.pull_request.title, 'Bump')
     steps:
       # Waiting for Vercel deployment
-      - name: Retrieve deployment URL (example on how to set an ENV var)
-        run: "echo VERCEL_DEPLOYMENT_URL=nextjs-bzyss249z.vercel.app >> $GITHUB_ENV"
-
       - uses: UnlyEd/github-action-await-vercel@v1.1.0
         id: await-vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         with:
-          deployment-url: ${{ env.VERCEL_DEPLOYMENT_URL }}
+          deployment-url: bog.sujames.com
           timeout: 10 # Wait for 10 seconds before failing
 
-      - name: Displays the deployment name (example on how to read information about the deployment)
+      - name: Display deployment status
         run: "echo The deployment at ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).url }} is ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).readyState }}"
       
       # Auto merge dependabot
