@@ -33,7 +33,7 @@
     "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.171",
+    "@types/lodash": "^4.14.181",
     "@types/node": "^16.11.6",
     "@types/react": "^17.0.33",
     "@types/react-syntax-highlighter": "^13.5.2",
