@@ -906,10 +906,10 @@
     "@contentful/rich-text-types" "^15.5.1"
     escape-html "^1.0.3"
 
-"@contentful/rich-text-types@^15.1.0", "@contentful/rich-text-types@^15.5.1":
-  version "15.5.1"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-15.5.1.tgz#1fa318564307635225116502b2e120b130cb97c2"
-  integrity sha512-FEFyPv4s6yoBMONSabbnZQn2o6n89bwIvD+y1uqgi48qnsOf7LoodNIL7t7vaSzHCUj5wU3zKUiTmMaSB5Uptw==
+"@contentful/rich-text-types@^15.14.0", "@contentful/rich-text-types@^15.5.1":
+  version "15.14.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-15.14.0.tgz#9bc2ce5e4409f8333d4ad641f1d296aaad6de57e"
+  integrity sha512-KvyijiWyRFYodf5wjJmeA3L1ryVej015wEVQBrKvPwG4n7itbYczEPmxC10GWhg121qb5mfYVlGEmnAIXsBmIQ==
 
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
