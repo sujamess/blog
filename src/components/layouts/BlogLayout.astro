@@ -21,8 +21,7 @@ const { title, description, bannerImg } = Astro.props.blog.data;
               width={bannerImg.width}
               height={bannerImg.height}
               placeholder={bannerImg.placeholder}
-              loading="lazy"
-              fetchPriority="low"
+              fetchPriority="high"
             />
             <div class="py-8">
                 <BlogHeader {...Astro.props} />
