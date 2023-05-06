@@ -27,7 +27,7 @@ const { page } = Astro.props
 <BaseLayout>
   <div class="mx-auto max-w-screen-xl space-y-6 pt-6 lg:pt-8 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
-      {page.data.map(({ data, slug }) => (
+      {page.data.map(({ data, slug }, i) => (
           <a href={`/${slug}`} rel="prefetch">
             <div class="p-4 sm:p-6 relative overflow-hidden rounded-none shadow-lg sm:rounded-2xl bg-white">
               <Image
@@ -36,7 +36,7 @@ const { page } = Astro.props
                 width={data.bannerImg.width}
                 height={data.bannerImg.height}
                 placeholder={data.bannerImg.placeholder}
-                loading="lazy"
+                loading={i < 1 ? null : 'lazy'}
                 fetchPriority="low"
               />
               <div class="pt-4 sm:pt-6">
