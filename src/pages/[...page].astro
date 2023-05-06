@@ -28,24 +28,24 @@ const { page } = Astro.props
   <div class="mx-auto max-w-screen-xl space-y-6 pt-6 lg:pt-8 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
       {page.data.map(({ data, slug }) => (
-        <div class="p-4 sm:p-6 relative overflow-hidden rounded-none shadow-lg sm:rounded-2xl bg-white">
           <a href={`/${slug}`} rel="prefetch">
-            <Image
-              alt={data.title}
-              src={data.bannerImg.url}
-              width={data.bannerImg.width}
-              height={data.bannerImg.height}
-              placeholder={data.bannerImg.placeholder}
-              loading="lazy"
-              fetchPriority="low"
-            />
+            <div class="p-4 sm:p-6 relative overflow-hidden rounded-none shadow-lg sm:rounded-2xl bg-white">
+              <Image
+                alt={data.title}
+                src={data.bannerImg.url}
+                width={data.bannerImg.width}
+                height={data.bannerImg.height}
+                placeholder={data.bannerImg.placeholder}
+                loading="lazy"
+                fetchPriority="low"
+              />
+              <div class="pt-4 sm:pt-6">
+                <h1 class="text-2xl text-gray-900">{data.title}</h1>
+                <p class="text-gray-600">{formatDate(data.createdAt)}</p>
+                <p class="pt-2 text-gray-600">{data.description}</p>
+              </div>
+            </div>
           </a>
-          <div class="pt-4 sm:pt-6">
-            <h1 class="text-2xl text-gray-900">{data.title}</h1>
-            <p class="text-gray-600">{formatDate(data.createdAt)}</p>
-            <p class="pt-2 text-gray-600">{data.description}</p>
-          </div>
-        </div>
       ))}
     </div>
   </div>
