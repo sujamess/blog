@@ -1,16 +1,16 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-h1, h2, h3, h4, h5, h6, a, p, span {
-  @apply font-sans;
+html {
+  @apply bg-white !important;
 }
 
-code {
-  @apply text-xs md:text-sm !important;
-}
-
-.logo-wrapper {
-  width: 160px;
-  height: 160px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-header;
 }

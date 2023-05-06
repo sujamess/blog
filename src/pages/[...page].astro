@@ -1,0 +1,52 @@
+---
+import BaseLayout from '@components/layouts/BaseLayout.astro';
+import type { GetStaticPaths, Page } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import { getBlogCollection } from '@core/services/blog';
+import Image from '@components/core/Image.astro';
+import { formatDate } from '@core/services/date';
+
+export interface Props {
+    page: Page<CollectionEntry<'blog'>>;
+}
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+    const blogs = await getBlogCollection();
+
+    return paginate(blogs, { pageSize: 6 }).map((page, i) => ({
+        ...page,
+        params: {
+            page: i > 0 ? `pages/${i + 1}` : undefined,
+        },
+    }));
+}
+
+const { page } = Astro.props
+---
+
+<BaseLayout>
+  <div class="mx-auto max-w-screen-xl space-y-6 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+      {page.data.map(({ data, slug }, i) => (
+        <div class="p-4 sm:p-6 relative overflow-hidden rounded-none shadow-lg sm:rounded-2xl bg-white">
+          <a href={`/${slug}`} rel="prefetch">
+            <Image
+              alt={data.title}
+              src={data.bannerImg.url}
+              width={data.bannerImg.width}
+              height={data.bannerImg.height}
+              placeholder={data.bannerImg.placeholder}
+              loading="lazy"
+              fetchPriority="low"
+            />
+          </a>
+          <div class="pt-4 sm:pt-6">
+            <h1 class="text-2xl text-gray-900">{data.title}</h1>
+            <p class="text-gray-600">{formatDate(data.createdAt)}</p>
+            <p class="pt-2 text-gray-600">{data.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

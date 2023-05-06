@@ -1,0 +1,37 @@
+---
+import { getBlogCollection } from '@core/services/blog';
+
+import type { GetStaticPaths } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+import BlogLayout from '@components/layouts/BlogLayout.astro';
+
+export interface Props {
+  blog: CollectionEntry<'blog'>
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const blogs = await getBlogCollection()
+
+  return blogs.map(blog => {
+    return {
+      props: {
+        blog,
+      },
+      params: {
+        slug: blog.slug,
+      },
+    }
+  })
+}
+
+const renderedContent = await Astro.props.blog.render()
+const { Content } = renderedContent
+---
+
+<BlogLayout
+  blog={Astro.props.blog}
+  readingTime={renderedContent.remarkPluginFrontmatter.minutesRead}
+>
+  <Content />
+  <!-- {renderedContent.Content.} -->
+</BlogLayout>

@@ -1,0 +1,28 @@
+---
+import { formatDate } from '@core/services/date';
+
+import type { CollectionEntry } from 'astro:content'
+
+export interface Props {
+  blog: CollectionEntry<'blog'>
+  readingTime: string
+}
+
+const { title, createdAt, tags } = Astro.props.blog.data
+---
+
+<section>
+  <h1 class="text-2xl text-gray-900 sm:text-4xl">{title}</h1>
+  <p class="mt-2 text-gray-500">
+    <span class="font-medium text-gray-600">{formatDate(createdAt)}</span> · <span class="font-medium text-gray-600">{Astro.props.readingTime}</span>
+  </p>
+  <div class="-mt-1 flex flex-wrap space-x-2 pt-3">
+    {
+      tags.map(tag => (
+        <span class="my-1 inline-flex items-center rounded-md bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800">
+          {tag}
+        </span>
+      ))
+    }
+  </div>
+</section>
