@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Image from '@components/core/Image.astro';
+import BlogHeader from '@components/core/BlogHeader.astro';
+
+export interface Props {
+    blog: CollectionEntry<'blog'>;
+    readingTime: string;
+}
+
+const { title, description, bannerImg } = Astro.props.blog.data;
+
+---
+<BaseLayout title={title} description={description} image={bannerImg.url}>
+    <div class="mx-auto max-w-screen-lg space-y-6 sm:px-6 lg:px-8">
+        <div class="px-4 sm:px-6 lg:px-8 sm:p-6 overflow-hidden rounded-none shadow-lg sm:rounded-2xl bg-white">
+            <Image
+              alt={title}
+              src={bannerImg.url}
+              width={bannerImg.width}
+              height={bannerImg.height}
+              placeholder={bannerImg.placeholder}
+              loading="lazy"
+              fetchPriority="low"
+            />
+            <div class="py-8">
+                <BlogHeader {...Astro.props} />
+                <article class="prose prose-blue mx-auto max-w-screen-md pt-6">
+                    <slot />
+                </article>
+            </div>
+        </div>
+        
+    </div>
+
+</BaseLayout>

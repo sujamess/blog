@@ -1,0 +1,56 @@
+---
+import '@styles/font.css';
+import '@styles/tailwind.css';
+
+const {
+  title = '',
+  description = 'Stay ahead of the curve with my tech blog, featuring the latest news, trends, and insights on all things tech, and lifestyle',
+  image = 'https://blog.sujamess.com/favicon.webp',
+} = Astro.props
+
+const transformedTitle = title === '' ? 'Sujamess Blog' : `Sujamess Blog · ${title}`
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+		<link rel="icon" href="/favicon.webp" />
+	
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	
+		<title>{transformedTitle}</title>
+	
+		<meta name="title" content={transformedTitle} />
+		<meta name="description" content={description} />
+	
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={transformedTitle} />
+		<meta property="og:description" content={description} />
+	
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={transformedTitle} />
+		<meta property="twitter:description" content={description} />
+	
+		<meta property="og:image" content={image} />
+		<meta property="twitter:image" content={image} />
+	</head>
+	<body>
+		<div>
+			<header class="w-screen flex justify-center">
+				<a href="/" aria-label="Logo" rel="prefetch">
+					<img src="/favicon.webp" />
+				</a>
+			</header>
+		</div>
+		<main>
+			<slot />
+		</main>
+	</body>
+</html>
