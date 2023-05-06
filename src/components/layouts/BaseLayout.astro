@@ -1,6 +1,7 @@
 ---
 import '@styles/font.css';
 import '@styles/tailwind.css';
+import BaseFooter from './BaseFooter.astro';
 
 const {
   title = '',
@@ -41,16 +42,15 @@ const transformedTitle = title === '' ? 'Sujamess Blog' : `Sujamess Blog · ${ti
 		<meta property="og:image" content={image} />
 		<meta property="twitter:image" content={image} />
 	</head>
-	<body>
-		<div>
-			<header class="w-screen flex justify-center">
-				<a href="/" aria-label="Logo" rel="prefetch">
-					<img src="/favicon.webp" />
-				</a>
-			</header>
-		</div>
-		<main>
+	<body class="h-screen flex flex-col">
+		<header class="w-screen flex justify-center">
+			<a href="/" aria-label="Logo" rel="prefetch">
+				<img src="/favicon.webp" />
+			</a>
+		</header>
+		<main class="flex-auto">
 			<slot />
 		</main>
+		<BaseFooter />
 	</body>
 </html>
