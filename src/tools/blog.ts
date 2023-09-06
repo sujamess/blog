@@ -1,4 +1,4 @@
-import { Blog, getBlogsFragment } from '../core/constants/blog';
+import { type Blog, getBlogsFragment } from '../core/constants/blog';
 
 import { getBlurHash } from '../core/services/image';
 import type { BlurHashResponse } from '../core/services/image';
@@ -32,11 +32,10 @@ export const getBlogs = async (option: GetBlogsOption): Promise<ProcessedBlog[]>
     const rawResult: RawQueryResult = await fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`, {
         headers: {
             'Content-Type': 'application/json; charset=UTF-8',
-            'Authorization': `Bearer ${
-                isPreview
-                    ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
-                    : process.env.CONTENTFUL_ACCESS_TOKEN
-            }`
+            'Authorization': `Bearer ${isPreview
+                ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+                : process.env.CONTENTFUL_ACCESS_TOKEN
+                }`
         },
         method: 'POST',
         body: JSON.stringify({
@@ -66,7 +65,7 @@ export const getBlogs = async (option: GetBlogsOption): Promise<ProcessedBlog[]>
             },
         })),
     );
-    
+
     console.log('blog: blogs processed');
 
     return result;
